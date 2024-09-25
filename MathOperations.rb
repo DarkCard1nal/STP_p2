@@ -12,7 +12,7 @@ class MathOperations
 		raise NotImplementedError
 	end
 
-	def self.OperationPriority(input) # rubocop:disable Metrics/MethodLength
+	def self.OperationPriority(input)
 		index = @@MathOperations.index(input)
 		if index.nil?
 			index = @@PrioritySticksOpen.index(input)
@@ -27,5 +27,29 @@ class MathOperations
 		end
 
 		index
+	end
+
+	def self.UpdateMathOperationsFromFile(filePath)
+		unless File.exist?(filePath)
+			puts Constants::FILE_NOT_FOUND
+			return
+		end
+
+		unless File.readable?(filePath)
+			puts Constants::FILE_NOT_READABLE
+			return
+		end
+
+		lines = File.readlines(filePath)
+		if lines.length < 3
+			puts Constants::FILE_BROKEN
+			return
+		end
+
+		# rubocop:disable Style/ClassVars
+		@@MathOperations = lines[0].split
+		@@PrioritySticksOpen = lines[1].split
+		@@PrioritySticksClose = lines[2].split
+		# rubocop:enable Style/ClassVars
 	end
 end
