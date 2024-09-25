@@ -5,7 +5,7 @@ require_relative 'Constants'
 # Static class that defines mathematical operations and their priority receives operations from the specified file
 class MathOperations
 	# rubocop:disable Style/ClassVars
-	@@MathOperations = %w[^ * / % + -]
+	@@MathOperations = [%w[+ -], %w[* / %], '^']
 	@@PrioritySticksOpen = %w'( ['
 	@@PrioritySticksClose = %w') ]'
 	# rubocop:enable Style/ClassVars
@@ -14,18 +14,22 @@ class MathOperations
 		raise NotImplementedError
 	end
 
+	# The method determines the priority of the operation, where 0 is low priority (0 and above is the index in
+	# the MathOperations array), if -1 is opening the wishbone, if -2 is closing the wishbone,
+	# if it is an unknown operation it is nil
 	def self.OperationPriority(input)
-		index = @@MathOperations.index(input)
+		index = @@PrioritySticksOpen.index(input)
 		if index.nil?
-			index = @@PrioritySticksOpen.index(input)
+			index = @@PrioritySticksClose.index(input)
 			if index.nil?
-				index = @@PrioritySticksClose.index(input)
-				index = 0 if index.nil? == false
+				@@MathOperations.each_with_index do |array, indexx|
+					return indexx if array.include?(input)
+				end
 			else
-				index = 1
+				index = -2
 			end
 		else
-			index += 2
+			index = -1
 		end
 
 		index
@@ -48,8 +52,10 @@ class MathOperations
 			return
 		end
 
+		groups = lines[0].split(',').map(&:split)
+
 		# rubocop:disable Style/ClassVars
-		@@MathOperations = lines[0].split
+		@@MathOperations = groups
 		@@PrioritySticksOpen = lines[1].split
 		@@PrioritySticksClose = lines[2].split
 		# rubocop:enable Style/ClassVars
