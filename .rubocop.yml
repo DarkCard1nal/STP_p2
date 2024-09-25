@@ -13,3 +13,6 @@ Naming/VariableName:
 
 Naming/FileName:
   Enabled: false
+
+Naming/MethodName:
+  Enabled: false
