@@ -35,6 +35,17 @@ class MathOperations
 		index
 	end
 
+	def self.ReplaceWithSpaces(input)
+		input.gsub!(/\s+/, '')
+		regex = Regexp.union(@@MathOperations.flatten + @@PrioritySticksOpen + @@PrioritySticksClose)
+
+		input.gsub!(regex) do |chr|
+			" #{chr} "
+		end
+
+		input.strip
+	end
+
 	def self.UpdateMathOperationsFromFile(filePath)
 		unless File.exist?(filePath)
 			puts Constants::FILE_NOT_FOUND

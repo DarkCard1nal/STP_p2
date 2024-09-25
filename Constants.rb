@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 module Constants
+	AUTHOR = 'Converter of mathematical expressions to RPN form by Shkilnyi V. CS31'
+	ENTER_INPUT = 'Enter a mathematical expression:'
+	RESULT = 'Result of conversion to RPN:'
 	FILE = 'MathOperations.txt'
 	ERROR = 'ERROR!'
 	STANDART_SET = 'The standard set of operations will be used for conversion!'
