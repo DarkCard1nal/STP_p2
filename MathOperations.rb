@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require_relative 'Constants'
+
 # Static class that defines mathematical operations and their priority receives operations from the specified file
 class MathOperations
 	# rubocop:disable Style/ClassVars
@@ -13,8 +15,6 @@ class MathOperations
 	end
 
 	def self.OperationPriority(input)
-		MathOperations.UpdateMathOperationsFromFile(Constants::FILE)
-
 		index = @@MathOperations.index(input)
 		if index.nil?
 			index = @@PrioritySticksOpen.index(input)
