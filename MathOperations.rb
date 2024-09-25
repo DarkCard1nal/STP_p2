@@ -13,6 +13,8 @@ class MathOperations
 	end
 
 	def self.OperationPriority(input)
+		MathOperations.UpdateMathOperationsFromFile(Constants::FILE)
+
 		index = @@MathOperations.index(input)
 		if index.nil?
 			index = @@PrioritySticksOpen.index(input)
