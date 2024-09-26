@@ -34,13 +34,6 @@ Attention: When changing the contents of a file, be sure to follow this structur
 > ruby Program.rb
 Converter of mathematical expressions to RPN form by Shkilnyi V. CS31
 Enter a mathematical expression:
-3 + 4 * 2 / ( 1 - 5 ) ^ 2
-Result of conversion to RPN:
-3 4 2 * 1 5 - 2 ^ / +
-
-> ruby Program.rb
-Converter of mathematical expressions to RPN form by Shkilnyi V. CS31
-Enter a mathematical expression:
 a + b * c
 Result of conversion to RPN:
 a b c * +
@@ -84,6 +77,13 @@ a b + c d + *
 
 > ruby Program.rb 'a + b * c'
 a b c * +
+
+> ruby Program.rb
+Converter of mathematical expressions to RPN form by Shkilnyi V. CS31
+Enter a mathematical expression:
+3 + 4 * 2 / ( 1 - 5 ) ^ 2
+Result of conversion to RPN:
+3 4 2 * 1 5 - 2 ^ / +
 
 > ruby Program.rb '3 + 4 * 2 / ( 1 - 5 ) ^ 2'
 3 4 2 * 1 5 - 2 ^ / +
