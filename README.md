@@ -78,6 +78,18 @@ a b + c d + *
 > ruby Program.rb 'a + b * c'
 a b c * +
 
+> ruby Program.rb '-2 + 4'
+-2 4 +
+
+> ruby Program.rb '3.4+5.9'
+3.4 5.9 +
+
+> ruby Program.rb '3+-5+'  
+3 -5 +
+
+> ruby Program.rb '1/0'  
+ERROR! Invalid input. Check that the input is correct! Division by 0 has been detected!
+
 > ruby Program.rb
 Converter of mathematical expressions to RPN form by Shkilnyi V. CS31
 Enter a mathematical expression:
