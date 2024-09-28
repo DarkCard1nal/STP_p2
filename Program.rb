@@ -12,9 +12,7 @@ else
 	input = ARGV.join
 end
 
-input.gsub!(/\s+/, '')
-
-if input.nil?
+if input.gsub(/\s+/, '').nil?
 	puts(Constants::INVALID_INPUT)
 	return
 end

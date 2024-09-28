@@ -11,4 +11,5 @@ module Constants
 	FILE_NOT_READABLE = "#{ERROR} File is not readable. #{STANDART_SET}".freeze
 	FILE_BROKEN = "#{ERROR} The file structure is broken. #{STANDART_SET}".freeze
 	INVALID_INPUT = "#{ERROR} Invalid input. Check that the input is correct!".freeze
+	DIVISION_BY_ZERO = "#{INVALID_INPUT} Division by 0 has been detected!".freeze
 end

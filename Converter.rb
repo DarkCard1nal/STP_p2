@@ -12,6 +12,9 @@ class Converter
 	# The method takes an equation string with each character separated by a space and rotates as RNP
 	def self.ConvertToRPN(input)
 		MathOperations.UpdateMathOperationsFromFile(Constants::FILE)
+
+		return nil if MathOperations.IsDivisionByZero(input)
+
 		input = MathOperations.ReplaceWithSpaces(input)
 		result = ''
 		stack = []
